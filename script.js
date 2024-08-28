@@ -1,7 +1,7 @@
 const boxContainer = document.querySelector('.box-container')
 
 function addGlobalEventListener(type, selector, callback, parent = document) {
-  document.addEventListener(type, (e) => {
+  parent.addEventListener(type, (e) => {
     if (e.target.matches(selector)) {
       callback(e)
     }
