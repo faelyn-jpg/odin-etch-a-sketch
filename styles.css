@@ -1,8 +1,16 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
 .square-container {
   display: flex;
   width: 336px;
   flex-wrap: wrap;
   border: 1px solid black;
+  margin-top: 40px;
 }
 
 .gridSquare {
