@@ -5,7 +5,7 @@ body {
   margin: 0;
 }
 
-.square-container {
+.box-container {
   display: flex;
   width: 336px;
   flex-wrap: wrap;
@@ -13,7 +13,7 @@ body {
   margin-top: 40px;
 }
 
-.gridSquare {
+.gridBox {
   display: flex;
   width: 19px;
   height: 19px;
