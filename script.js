@@ -11,17 +11,17 @@ function addGlobalEventListener(type, selector, callback, parent = document) {
 function addGrid() {
   for (let i = 0; i < 256; i++) {
     const box = document.createElement('div')
-    box.className = 'gridBox'
+    box.classList.add('gridBox', 'onHover')
     boxContainer.appendChild(box)
   }
 }
 
 addGrid()
-addGlobalEventListener(
-  'mouseover',
-  '.gridBox',
-  (e) => {
-    e.target.className += ' onHover'
-  },
-  boxContainer
-)
+// addGlobalEventListener(
+//   'mouseover',
+//   '.gridBox',
+//   (e) => {
+//     e.target.className += ' onHover'
+//   },
+//   boxContainer
+// )
