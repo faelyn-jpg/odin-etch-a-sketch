@@ -22,9 +22,10 @@ body {
 
 .onHover:hover {
   background-color: black;
-  opacity: 0.1;
+  opacity: 0.4;
 }
 
 .drawnBox {
-  background-color: darkgray;
+  background-color: black;
+  opacity: 0.5;
 }
