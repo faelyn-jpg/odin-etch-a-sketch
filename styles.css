@@ -7,17 +7,20 @@ body {
 
 .box-container {
   display: flex;
-  width: 336px;
+  width: 735px;
+  height: 735px;
   flex-wrap: wrap;
-  border: 1px solid black;
+  border: 2px solid black;
+  background-color: black;
   margin-top: 40px;
+  gap: 1px;
 }
 
 .gridBox {
   display: flex;
-  width: 19px;
-  height: 19px;
-  border: 1px solid black;
+  width: 45px;
+  height: 45px;
+  background-color: white;
 }
 
 .onHover:hover {

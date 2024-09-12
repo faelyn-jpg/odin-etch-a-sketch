@@ -9,8 +9,21 @@ function addGlobalEventListener(type, selector, callback, parent = document) {
     }
   })
 }
-function addGrid() {
-  for (let i = 0; i < 256; i++) {
+
+const containerSize = 735
+
+function calculateBoxSize(containerSize, numberOfBoxes) {
+  const boxCalc = containerSize + 1 - (numberOfBoxes - 1)
+  const boxWidthAndHeight = boxCalc / numberOfBoxes
+  return boxWidthAndHeight
+}
+
+//propmt user for grid size
+//calculate grid size
+//run add grid with calculated grid w/h
+
+function addGrid(amountOfBoxes) {
+  for (let i = 0; i < amountOfBoxes; i++) {
     const box = document.createElement('div')
     box.setAttribute('ondragstart', 'handleDrag(event)')
     box.classList.add('gridBox', 'onHover')
