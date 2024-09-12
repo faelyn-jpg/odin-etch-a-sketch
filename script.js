@@ -1,6 +1,10 @@
 const boxContainer = document.querySelector('.box-container')
 const gridBox = document.querySelector('.gridBox')
+const body = document.querySelector('body')
 let isToggling = false
+const containerSize = 735
+let amountOfBoxes = 256
+let boxWidthAndHeight = 45
 
 function addGlobalEventListener(type, selector, callback, parent = document) {
   parent.addEventListener(type, (e) => {
@@ -10,14 +14,24 @@ function addGlobalEventListener(type, selector, callback, parent = document) {
   })
 }
 
-const containerSize = 735
-
-function calculateBoxSize(containerSize, numberOfBoxes) {
-  const boxCalc = containerSize + 1 - (numberOfBoxes - 1)
-  const boxWidthAndHeight = boxCalc / numberOfBoxes
+function calculateBoxSize(containerSize, gridSize) {
+  const boxCalc = containerSize + 1 - (gridSize - 1)
+  const boxWidthAndHeight = boxCalc / gridSize
   return boxWidthAndHeight
 }
 
+function createCustomGrid() {
+  let gridSize = prompt(
+    'What size grid would you like? Grid will be created number x number, enter a number from 1 to 100.',
+    '32'
+  )
+  boxWidthAndHeight = calculateBoxSize(containerSize, gridSize)
+  // removeGrid()
+  amountOfBoxes = gridSize * gridSize
+
+  //dynamically change css rules in addGrid()
+  addGrid(amountOfBoxes)
+}
 //propmt user for grid size
 //calculate grid size
 //run add grid with calculated grid w/h
@@ -29,6 +43,13 @@ function addGrid(amountOfBoxes) {
     box.classList.add('gridBox', 'onHover')
     boxContainer.appendChild(box)
   }
+}
+
+function removeGrid() {
+  boxContainer.remove()
+  const addContainer = document.createElement('div')
+  addContainer.classList.add('box-container')
+  body.appendChild(addContainer)
 }
 
 function handleDrag(event) {
@@ -45,7 +66,17 @@ function disableToggle() {
   return false
 }
 
-addGrid()
+let button = document.querySelector('click-button')
+addGrid(amountOfBoxes)
+
+addGlobalEventListener(
+  'click',
+  'button',
+  (e) => {
+    removeGrid()
+  },
+  document
+)
 
 addGlobalEventListener(
   'mousedown',
